@@ -7,7 +7,6 @@ body {
     margin: 0;
     background-color: white;
     font-family: "Nunito", sans-serif;
-    flex-direction: column;
   }
   
   .container {
