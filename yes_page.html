@@ -19,7 +19,7 @@
     <div class="container" style="display:flex;justify-content:center;flex-wrap: wrap;gap: 20px">
 
             
-        <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-card" data-sound="1" onclick="flipCard(this)">
             <div class="flip-card-inner">
                 <div class="flip-card-front">❤️</div>
                 <div class="flip-card-back">
@@ -29,7 +29,7 @@
             </div>
         </div>
 
-        <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-card" data-sound="2" onclick="flipCard(this)">
             <div class="flip-card-inner">
                 <div class="flip-card-front">💖</div>
                 <div class="flip-card-back">
@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-card" data-sound="3" onclick="flipCard(this)">
             <div class="flip-card-inner">
                 <div class="flip-card-front">💘</div>
                 <div class="flip-card-back">
@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-card" data-sound="4" onclick="flipCard(this)">
             <div class="flip-card-inner">
                 <div class="flip-card-front">💝</div>
                 <div class="flip-card-back">
@@ -62,14 +62,22 @@
 
 
     <!-- Flip Sound -->
-    <audio id="flipSound">
-        <source src="https://www.soundjay.com/buttons/sounds/button-16.mp3" type="audio/mpeg">
-    </audio>
+<audio id="sound1" src="1.mp3"></audio>
+<audio id="sound2" src="2.mp3"></audio>
+<audio id="sound3" src="3.mp3"></audio>
+<audio id="sound4" src="4.mp3"></audio>
 
     <script>
         function flipCard(card) {
             card.classList.toggle("flipped");
-            document.getElementById("flipSound").play();
+             const soundId = card.dataset.sound;
+    const audio = document.getElementById(soundId);
+
+    if (audio) {
+        audio.currentTime = 0;
+        audio.play();
+    }
+            
         }
     </script>
 
