@@ -116,3 +116,19 @@ body {
     font-weight: bold;
     text-align: center;
 }
+
+@media (max-width: 480px) {
+    .flip-card {
+        width: 140px;
+        height: 210px;
+    }
+
+    .flip-card-back img {
+        height: 130px;
+    }
+
+    .flip-card-back p {
+        font-size: 13px;
+    }
+}
+
