@@ -89,7 +89,9 @@
         const audio = document.getElementById(soundId);
 
         if (audio) {
-            audio.play();
+            if (card.classList.contains("flipped")) {
+   audio.play();
+}
         }
         }
     </script>
