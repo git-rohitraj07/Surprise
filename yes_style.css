@@ -94,23 +94,18 @@ body {
     background: #fff;
     transform: rotateY(180deg);
     padding: 8px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;   /* 🔑 prevents overflow */
 }
 
 .flip-card-back img {
     width: 100%;
-    flex: 1;             /* 🔑 image takes remaining space */
-    object-fit: cover;   /* 🔑 fills card without distortion */
+    height: 120px;
+    object-fit: cover;
     border-radius: 10px;
 }
 
 .flip-card-back p {
     margin: 6px 0 0;
-    font-size: 13px;
+    font-size: 14px;
     color: #ff4d6d;
     font-weight: bold;
-    flex-shrink: 0;      /* 🔑 text never shrinks */
 }
-
