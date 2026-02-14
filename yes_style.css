@@ -50,13 +50,7 @@ body {
     flex-wrap: wrap;
 }
 
-/* Flip Card */
-.flip-card {
-    width: 160px;
-    height: 200px;
-    perspective: 1000px;
-    cursor: pointer;
-}
+
 
 .flip-card-inner {
     position: relative;
@@ -90,26 +84,36 @@ body {
     font-size: 42px;
 }
 
+.flip-card {
+    width: 160px;
+    height: 220px;               /* ⬆ give more vertical space */
+    perspective: 1000px;
+    cursor: pointer;
+}
+
 .flip-card-back {
     background: #fff;
     transform: rotateY(180deg);
     padding: 8px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;        /* 🔑 prevents overflow */
+    justify-content: space-between;  /* 🔑 image + text spacing */
+    overflow: hidden;
 }
 
+/* Image fully visible */
 .flip-card-back img {
     width: 100%;
-    flex: 1;                 /* 🔑 image takes remaining space */
-    object-fit: cover;       /* 🔑 crop nicely */
+    height: 150px;               /* 🔑 fixed safe height */
+    object-fit: contain;         /* 🔑 no crop */
     border-radius: 10px;
 }
 
+/* Text always visible */
 .flip-card-back p {
     margin: 6px 0 0;
-    font-size: 13px;
+    font-size: 14px;
     color: #ff4d6d;
     font-weight: bold;
-    flex-shrink: 0;          /* 🔑 text never overlaps */
+    text-align: center;
 }
