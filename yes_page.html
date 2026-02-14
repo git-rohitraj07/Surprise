@@ -72,7 +72,10 @@
          const bgMusic = document.getElementById("bgMusic");
     bgMusic.volume = 0.15;
 
-        window.onload = () => bgMusic.play();
+        // Start music on first interaction anywhere
+    document.addEventListener("click", startMusicOnce);
+        
+    document.addEventListener("touchstart", startMusicOnce);
  
         const allSounds = [
         document.getElementById("sound1"),
@@ -80,7 +83,11 @@
         document.getElementById("sound3"),
         document.getElementById("sound4")
     ];
-
+ function startMusicOnce() {
+        bgMusic.play().catch(() => {});
+        document.removeEventListener("click", startMusicOnce);
+        document.removeEventListener("touchstart", startMusicOnce);
+    }
     function flipCard(card) {
         card.classList.toggle("flipped");
 
