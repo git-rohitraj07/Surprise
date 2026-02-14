@@ -68,16 +68,29 @@
 <audio id="sound4" src="4.mp3"></audio>
 
     <script>
-        function flipCard(card) {
-            card.classList.toggle("flipped");
-             const soundId = card.dataset.sound;
-    const audio = document.getElementById(soundId);
+        const allSounds = [
+        document.getElementById("sound1"),
+        document.getElementById("sound2"),
+        document.getElementById("sound3"),
+        document.getElementById("sound4")
+    ];
 
-    if (audio) {
-        audio.currentTime = 0;
-        audio.play();
-    }
-            
+    function flipCard(card) {
+        card.classList.toggle("flipped");
+
+        // 🔴 Stop all sounds first
+        allSounds.forEach(sound => {
+            sound.pause();
+            sound.currentTime = 0;
+        });
+
+        // ▶️ Play this card's sound
+        const soundId = card.dataset.sound;
+        const audio = document.getElementById(soundId);
+
+        if (audio) {
+            audio.play();
+        }
         }
     </script>
 
